@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 const About = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -157,7 +157,7 @@ const About = () => {
               fontWeight: "500",
             }}
           >
-            Whether you're looking to buy, sell, or simply explore, join our growing community of auction enthusiasts!
+            Whether you&apos;re looking to buy, sell, or simply explore, join our growing community of auction enthusiasts!
           </p>
         </div>
 

@@ -1,7 +1,7 @@
 import CardTwo from "@/custom-components/CardTwo";
 import Spinner from "@/custom-components/Spinner";
 import { getMyAuctionItems } from "@/store/slices/auctionSlice";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, Link } from "react-router-dom";
 
@@ -27,7 +27,7 @@ const ViewMyAuctions = () => {
       navigateTo("/");
     }
     dispatch(getMyAuctionItems());
-  }, [dispatch, isAuthenticated]);
+  }, [dispatch, isAuthenticated, navigateTo, user.role]);
 
   // Calculate statistics
   const activeAuctions = myAuctions.filter(auction => 
@@ -481,7 +481,7 @@ const ViewMyAuctions = () => {
                     margin: "0 auto 2rem auto",
                   }}
                 >
-                  Start your auction journey by creating your first listing. It's easy and takes just a few minutes!
+                  Start your auction journey by creating your first listing. It&apos;s easy and takes just a few minutes!
                 </p>
                 <Link
                   to="/submit-auction"

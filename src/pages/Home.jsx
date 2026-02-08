@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
@@ -355,7 +355,7 @@ const Home = () => {
             marginBottom:"2.5rem",
             lineHeight:1.6,
           }}>
-            Join thousands of satisfied users who trust QuickBid for their auction needs. Whether you're buying or selling, we make it simple and secure.
+            Join thousands of satisfied users who trust QuickBid for their auction needs. Whether you&apos;re buying or selling, we make it simple and secure.
           </p>
 
           <div style={{

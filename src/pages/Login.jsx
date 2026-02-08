@@ -1,5 +1,5 @@
 import { login } from "@/store/slices/userSlice";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
@@ -35,7 +35,7 @@ const Login = () => {
     if (isAuthenticated) {
       navigateTo("/");
     }
-  }, [isAuthenticated]);
+  }, [isAuthenticated, navigateTo]);
 
   return (
     <div
@@ -225,7 +225,7 @@ const Login = () => {
               marginBottom: "1rem",
             }}
           >
-            Don't have an account?{" "}
+            Don&apos;t have an account?{" "}
             <span
               onClick={() => navigateTo("/sign-up")}
               style={{

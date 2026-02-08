@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import DatePicker from "react-datepicker";
@@ -6,7 +6,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import { deleteAuction, republishAuction } from "@/store/slices/auctionSlice";
 
 const CardTwo = ({ imgSrc, title, startingBid, startTime, endTime, id }) => {
-  const calculateTimeLeft = () => {
+  const calculateTimeLeft = useCallback(() => {
     const now = new Date();
     const startDifference = new Date(startTime) - now;
     const endDifference = new Date(endTime) - now;
@@ -30,7 +30,7 @@ const CardTwo = ({ imgSrc, title, startingBid, startTime, endTime, id }) => {
       };
     }
     return timeLeft;
-  };
+  }, [startTime, endTime]);
 
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
 
@@ -39,7 +39,7 @@ const CardTwo = ({ imgSrc, title, startingBid, startTime, endTime, id }) => {
       setTimeLeft(calculateTimeLeft());
     });
     return () => clearTimeout(timer);
-  }, [timeLeft]);
+  }, [timeLeft, calculateTimeLeft]);
 
   const formatTimeLeft = ({ days, hours, minutes, seconds }) => {
     const pad = (num) => String(num).padStart(2, "0");
@@ -80,7 +80,7 @@ const CardTwo = ({ imgSrc, title, startingBid, startTime, endTime, id }) => {
                 {formatTimeLeft(timeLeft)}
               </span>
             ) : (
-              <span className="text-[#fdba88] font-bold ml-1">Time's up!</span>
+              <span className="text-[#fdba88] font-bold ml-1">Time&apos;s up!</span>
             )}
           </p>
           <div className="flex flex-col gap-2 mt-4">
@@ -137,7 +137,7 @@ const Drawer = ({ setOpenDrawer, openDrawer, id }) => {
             Republish Auction
           </h3>
           <p className="text-stone-600">
-            Let's republish auction with same details but new starting and
+            Let&apos;s republish auction with same details but new starting and
             ending time.
           </p>
           <form className="flex flex-col gap-5 my-5">

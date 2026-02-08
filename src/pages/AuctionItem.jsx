@@ -1,8 +1,8 @@
 import Spinner from "@/custom-components/Spinner";
 import { placeBid } from "@/store/slices/bidSlice";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { getAuctionDetail } from "@/store/slices/auctionSlice";
 
 const AuctionItem = () => {
@@ -12,7 +12,6 @@ const AuctionItem = () => {
   const { loading, auctionDetail, auctionBidders } = useSelector((state) => state.auction);
   const { isAuthenticated } = useSelector((state) => state.user);
   const dispatch = useDispatch();
-  const navigateTo = useNavigate();
 
   useEffect(() => {
     const checkScreenSize = () => {
@@ -35,7 +34,7 @@ const AuctionItem = () => {
     if (id) {
       dispatch(getAuctionDetail(id));
     }
-  }, [id]);
+  }, [id, dispatch]);
 
   return (
     <div
@@ -457,7 +456,7 @@ const AuctionItem = () => {
                           margin: 0,
                         }}
                       >
-                        This auction hasn't started yet. Please check back later.
+                        This auction hasn&apos;t started yet. Please check back later.
                       </p>
                     </div>
                   ) : (

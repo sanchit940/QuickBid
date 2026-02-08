@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import {
   FaUser,
   FaGavel,
@@ -242,7 +242,7 @@ const HowItWorks = () => {
               lineHeight: "1.6",
             }}
           >
-            Join thousands of users who trust QuickBid for their auction needs. Whether you're buying or selling, our platform makes it simple and secure.
+            Join thousands of users who trust QuickBid for their auction needs. Whether you&apos;re buying or selling, our platform makes it simple and secure.
           </p>
           <div
             style={{

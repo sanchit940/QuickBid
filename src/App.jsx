@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import SideDrawer from "./layout/SideDrawer";
 import Home from "./pages/Home";
@@ -28,7 +28,7 @@ const App = () => {
     dispatch(fetchUser());
     dispatch(getAllAuctionItems());
     dispatch(fetchLeaderboard());
-  }, []);
+  }, [dispatch]);
   return (
     <Router>
       <SideDrawer />

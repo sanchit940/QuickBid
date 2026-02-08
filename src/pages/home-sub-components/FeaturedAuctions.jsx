@@ -1,9 +1,8 @@
 import Card from "@/custom-components/Card";
-import React from "react";
 import { useSelector } from "react-redux";
 
 const FeaturedAuctions = () => {
-  const { allAuctions, loading } = useSelector((state) => state.auction);
+  const { allAuctions } = useSelector((state) => state.auction);
   return (
     <>
       <section className="my-8">
