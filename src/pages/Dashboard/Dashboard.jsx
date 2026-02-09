@@ -4,7 +4,7 @@ import {
   getAllUsers,
   getMonthlyRevenue,
 } from "@/store/slices/superAdminSlice";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import AuctionItemDelete from "./sub-components/AuctionItemDelete";
@@ -12,7 +12,6 @@ import BiddersAuctioneersGraph from "./sub-components/BiddersAuctioneersGraph";
 import PaymentGraph from "./sub-components/PaymentGraph";
 import PaymentProofs from "./sub-components/PaymentProofs";
 import Spinner from "@/custom-components/Spinner";
-import { Link } from "react-router-dom";
 
 const Dashboard = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -37,14 +36,14 @@ const Dashboard = () => {
     if (user.role !== "Super Admin" || !isAuthenticated) {
       navigateTo("/");
     }
-  }, [isAuthenticated]);
+  }, [isAuthenticated, navigateTo, user.role]);
 
   useEffect(() => {
     dispatch(getMonthlyRevenue());
     dispatch(getAllUsers());
     dispatch(getAllPaymentProofs());
     dispatch(clearAllSuperAdminSliceErrors());
-  }, []);
+  }, [dispatch]);
 
   return (
     <div

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { RiAuctionFill } from "react-icons/ri";
 import { MdLeaderboard, MdDashboard } from "react-icons/md";
 import { SiGooglesearchconsole } from "react-icons/si";

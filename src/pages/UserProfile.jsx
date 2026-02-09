@@ -1,5 +1,5 @@
 import Spinner from "@/custom-components/Spinner";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
@@ -22,7 +22,7 @@ const UserProfile = () => {
     if (!isAuthenticated) {
       navigateTo("/");
     }
-  }, [isAuthenticated]);
+  }, [isAuthenticated, navigateTo]);
 
   return (
     <div
